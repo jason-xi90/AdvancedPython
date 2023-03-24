@@ -1,0 +1,15 @@
+import pandas as pd
+
+df = orders.merge(customers, left_on = 'cust_id', right_on = 'id')
+
+total_df = df.groupby(['cust_id','order_date','first_name']).sum().reset_index()
+
+filtered_df = total_df[(total_df['order_date'] >= '2019-02-01') & (total_df['order_date'] < '2019-05-01')]
+
+filtered_df.sort_values('order_cost', ascending = False)[['first_name', 'order_cost', 'order_date']].head(1)
+
+df[df['order_date'] == '2019-04-19']
+
+
+
+
